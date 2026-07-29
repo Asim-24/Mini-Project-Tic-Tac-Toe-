@@ -101,7 +101,7 @@ button {
     background-color: crimson;
 }
 
-/* FOR DEVIDES WIDTH < 400 */
+/* FOR DEVIDES WIDTH LESS THEN 400 */
 
 @media (width < 401px) {
     #winner-container{

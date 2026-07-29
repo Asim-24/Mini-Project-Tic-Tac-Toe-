@@ -1,5 +1,3 @@
-console.log("hello js, wassup!!!")
-
 // WHAT I NEED JS TO DO
 
 /*
@@ -14,44 +12,69 @@ console.log("hello js, wassup!!!")
 
 let turn = "X";
 
-let button = document.getElementById("reset");
 
-button.addEventListener("click",() => {
-    window.location.reload();
-});
+// ACCESSING ELEMENTS
+
+let button = document.getElementById("reset");
 
 let blocks = document.getElementsByClassName("blocks");
 
 let parent_container = document.getElementById("parent-container");
 
+// RELOADING SITE TO RESET CHANGES - RESET BUTTON
+
+button.addEventListener("click",() => {
+    window.location.reload();
+});
+
+// DEFINED A SINGLE LISTNER FUNCTION WHICH HANDLES - TARGET ELEMENT, CHECK IF ALREADY CONTAINS, CHANGE THE TURN.
+
 function listner (e) {
+
     // only targets the inner childs
+    
     if(e.target.classList.contains("blocks")){
-        // checks if the element already have a value of not
-        if(e.target.innerText === "" ){
+    
+    // checks if the element already have a value of not
+    
+    if(e.target.innerText === "" ){
     e.target.innerText = turn;
+    
+    // Checking winner after every click. 
     win_check();
+    
     // change the turn each time
+
     if(turn ==="X"){
         turn = "O"
     } else{
         turn = "X";
-    }
-    }
-}
-}
+    };
+    
+    };
+    };
+};
 
 parent_container.addEventListener("click", listner);
 
-// winning conditions - 123, 456, 789, 147, 258, 369, 159, 357.
 
-// if(arr[0] === arr[1] === arr[2]){
-//     console.log(arr[1])
-// }
+// winning conditions - 012, 345, 678, 036, 147, 258, 048, 246.
 
-// if(box[0] === box[1] === box[2])
+/*  trying to figure out how to make a single function check winner each time with patterns
+
+    if(arr[0] === arr[1] === arr[2]){
+     console.log(arr[1])
+    }
+
+    if(box[0] === box[1] === box[2])
+
+*/
+
+// ACCESSING THE WINNER ELEMENT
 
 let winner = document.getElementById("winner");
+
+//  DEFINING WINNING PATTENRS
 
 const win_conditions = [
     [0,1,2],
@@ -63,6 +86,8 @@ const win_conditions = [
     [0,4,8],
     [2,4,6],
 ];
+
+// WINNER CHECK FUNCTION
 
 function win_check(){
     for(const condition of win_conditions){
@@ -79,6 +104,8 @@ function win_check(){
     }
 }
 }
+
+// TRIED TO CREATE DRAW CONDITION - PENDING
 
 // if(parent_container.children.innerText != ""){
 //     if(winner.innerText == ""){
